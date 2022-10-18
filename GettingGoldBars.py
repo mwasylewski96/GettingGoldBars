@@ -6,7 +6,9 @@ Attempts = [i+1 for i in range(5)]
 BoxOrNothing = ("Box! :)", "Nothing :(")
 BoxesColours = ("Green Box", "Orange Box", "Purple Box", "Gold Legendary Box")
 BoxesWithGoldBar = {"Green Box": 1000, "Orange Box": 4000, "Purple Box": 9000, "Gold Legendary Box": 16000}
-
+def RandomVariation(randomvariation=0):
+    randomvariation = random.randint(-10,10)
+    return randomvariation
 def RandomBoxorNothing(BoxOrNothing):
     BoxOrNothingRandom = random.choices(BoxOrNothing, [60, 40], k=1)
     BoxOrNothingRandom = BoxOrNothingRandom[0]
@@ -16,14 +18,15 @@ def RandomBoxesWithGoldBar(BoxesColours):
     BoxesWithGoldBarRandom = BoxesWithGoldBarRandom[0]
     return BoxesWithGoldBarRandom
 def GettingGoldBars(BoxesWithGoldBarRandom,BoxesWithGoldBar):
+    randomvariation = (RandomVariation()+100)/100
     if BoxesWithGoldBarRandom == "Green Box":
-        gold = BoxesWithGoldBar["Green Box"]
+        gold = BoxesWithGoldBar["Green Box"]*randomvariation
     if BoxesWithGoldBarRandom == "Orange Box":
-        gold = BoxesWithGoldBar["Orange Box"]
+        gold = BoxesWithGoldBar["Orange Box"]*randomvariation
     if BoxesWithGoldBarRandom == "Purple Box":
-        gold = BoxesWithGoldBar["Purple Box"]
+        gold = BoxesWithGoldBar["Purple Box"]*randomvariation
     if BoxesWithGoldBarRandom == "Gold Legendary Box":
-        gold = BoxesWithGoldBar["Gold Legendary Box"]
+        gold = BoxesWithGoldBar["Gold Legendary Box"]*randomvariation
     return gold
 SUM = 0
 for attempt in Attempts:
